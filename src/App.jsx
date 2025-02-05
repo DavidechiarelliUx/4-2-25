@@ -11,6 +11,8 @@ import horror from "./books/horror.json";
 import scifi from "./books/scifi.json";
 import history from "./books/history.json";
 import romance from "./books/romance.json";
+import SingleBooks from "./components/SignleBooks";
+import BookList from "./components/BookList";
 
 
 function App() {
@@ -19,6 +21,9 @@ function App() {
     <>
       <TopBar />
       <Welcome title="Benvenuti nella EpicBooks" description="qui puoi comprare tutti i libri che vuoi!" />
+      <h2 className="text-center my-5">Libro Selezionato</h2>
+      <SingleBooks book={fantasy[0]} />
+      <BookList books={fantasy} title="Libri Fantasy" />
       <AllTheBooks books={fantasy} title="Libri Fantasy" />
       <AllTheBooks books={horror} title="Libri Horror" />
       <AllTheBooks books={scifi} title="Libri Scifi" />
