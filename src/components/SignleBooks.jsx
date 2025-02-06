@@ -1,6 +1,8 @@
 import {Component} from "react";
 
 import { Container, Row, Card, Button } from "react-bootstrap";
+import CommentArea from "./CommentArea";
+import AddComment from "./AddComment";
 class SingleBooks extends Component{
     
     state= {
@@ -15,7 +17,7 @@ class SingleBooks extends Component{
         }
     }
     render(){
-        console.log("THIS : ", this);
+        // console.log("THIS : ", this);
         console.log(this.state.selected);
         return (
           <>
@@ -29,6 +31,8 @@ class SingleBooks extends Component{
                     <Button variant="primary">{this.props.book.price}</Button>
                   </Card.Body>
                 </Card>
+                {this.state.selected ? <CommentArea book={this.props.book} /> : ""}
+                {this.state.selected ? <AddComment/> : ""}
               </Row>
             </Container>
           </>
