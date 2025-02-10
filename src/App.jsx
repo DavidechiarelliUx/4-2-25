@@ -4,34 +4,56 @@ import './App.css'
 import TopBar from "./components/topBar";
 import Footer from "./components/Footer";
 import Welcome from "./components/Welcome";
-import AllTheBooks from "./components/AllTheBooks";
+// import AllTheBooks from "./components/AllTheBooks";
 
 import fantasy from "./books/fantasy.json";
-import horror from "./books/horror.json";
-import scifi from "./books/scifi.json";
-import history from "./books/history.json";
-import romance from "./books/romance.json";
+// import horror from "./books/horror.json";
+// import scifi from "./books/scifi.json";
+// import history from "./books/history.json";
+// import romance from "./books/romance.json";
 import SingleBooks from "./components/SignleBooks";
 import BookList from "./components/BookList";
+import CommentArea from "./components/CommentArea";
+import {Container, Row, Col} from "react-bootstrap";
 
+import {Component} from "react";
+class App extends Component {
+  state= {
+    asin : "",
+  }
 
-function App() {
+  changeState = (newAsin)=> {
+      this.setState({
+        asin : newAsin,
+      })
+  }
+  render(){
 
-  return (
-    <>
-      <TopBar />
-      <Welcome title="Benvenuti nella EpicBooks" description="qui puoi comprare tutti i libri che vuoi!" />
-      <h2 className="text-center my-5">Libro Selezionato</h2>
-      <SingleBooks book={fantasy[0]} />
-      <BookList books={fantasy} title="Libri Fantasy" />
-      <AllTheBooks books={fantasy} title="Libri Fantasy" />
+    return (
+      <>
+        <TopBar />
+        <Welcome title="Benvenuti nella EpicBooks" description="qui puoi comprare tutti i libri che vuoi!" />
+        <h2 className="text-center my-5">Libro Selezionato</h2>
+        <SingleBooks book={fantasy[0]} asin={this.state.asin} changeState={this.changeState} />
+        <Container>
+          <Row>
+            <Col>
+              <BookList books={fantasy} title="Libri Fantasy" asin={this.state.asin} changeState={this.changeState} />
+            </Col>
+            <Col>
+              <CommentArea asin={this.state.asin}></CommentArea>
+            </Col>
+          </Row>
+        </Container>
+        {/* <AllTheBooks books={fantasy} title="Libri Fantasy" />
       <AllTheBooks books={horror} title="Libri Horror" />
       <AllTheBooks books={scifi} title="Libri Scifi" />
       <AllTheBooks books={history} title="Libri History" />
-      <AllTheBooks books={romance} title="Libri Romance" />
-      <Footer />
-    </>
-  );
+      <AllTheBooks books={romance} title="Libri Romance" /> */}
+        <Footer />
+      </>
+    );
+}
 }
 
 export default App;

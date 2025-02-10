@@ -1,12 +1,14 @@
 import {Component} from "react";
-
+import { ListGroup } from "react-bootstrap";
 class SingleComment extends Component{
 
     render(){
         return (
           <>
-            <li>{this.props.comment.comment}</li>
-            <li>{this.props.comment.rate}</li>
+            <ListGroup.Item className="bg-warning">
+              {this.props.comment.comment}
+              <span className="text-success"> {this.props.comment.rate}</span>
+            </ListGroup.Item>
           </>
         );
     }

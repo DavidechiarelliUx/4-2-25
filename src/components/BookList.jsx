@@ -20,7 +20,7 @@ class BookList extends Component {
             {this.props.books.map((element, index) => {
               return (
                 <Col key={index}>
-                  <SingleBooks book={element} />
+                  <SingleBooks book={element} asin={this.props.asin} changeState={this.props.changeState} />
                 </Col>
               );
             })}
