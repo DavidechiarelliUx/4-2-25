@@ -15,33 +15,32 @@ import SingleBooks from "./components/SignleBooks";
 import BookList from "./components/BookList";
 import CommentArea from "./components/CommentArea";
 import {Container, Row, Col} from "react-bootstrap";
+import { useState } from "react";
 
-import {Component} from "react";
-class App extends Component {
-  state= {
-    asin : "",
+const App = () => {
+  // state= {
+  //   asin : "",
+  // }
+  const [asin, setAsin] = useState("");
+
+  const changeState = (newAsin)=> {
+      setAsin(newAsin)
   }
 
-  changeState = (newAsin)=> {
-      this.setState({
-        asin : newAsin,
-      })
-  }
-  render(){
 
     return (
       <>
         <TopBar />
         <Welcome title="Benvenuti nella EpicBooks" description="qui puoi comprare tutti i libri che vuoi!" />
         <h2 className="text-center my-5">Libro Selezionato</h2>
-        <SingleBooks book={fantasy[0]} asin={this.state.asin} changeState={this.changeState} />
+        <SingleBooks book={fantasy[0]} asin={asin} changeState={changeState} />
         <Container>
           <Row>
             <Col>
-              <BookList books={fantasy} title="Libri Fantasy" asin={this.state.asin} changeState={this.changeState} />
+              <BookList books={fantasy} title="Libri Fantasy" asin={asin} changeState={changeState} />
             </Col>
             <Col>
-              <CommentArea asin={this.state.asin}></CommentArea>
+              <CommentArea asin={asin}></CommentArea>
             </Col>
           </Row>
         </Container>
@@ -54,6 +53,6 @@ class App extends Component {
       </>
     );
 }
-}
+
 
 export default App;

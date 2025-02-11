@@ -1,9 +1,7 @@
-import {Component} from "react";
-
 import { Container, Row, Card, Button } from "react-bootstrap";
 // import CommentArea from "./CommentArea";
 // import AddComment from "./AddComment";
-class SingleBooks extends Component{
+const SingleBooks = (props)=> {
     
     // state= {
     //     selected:false
@@ -16,7 +14,7 @@ class SingleBooks extends Component{
     //         this.setState({ selected: false });
     //     }
     // }
-    render(){
+
         // console.log("THIS : ", this);
         // console.log(this.state.selected);
         return (
@@ -26,15 +24,15 @@ class SingleBooks extends Component{
                 <Card
                   onClick={() =>{
                     console.log("libro selezionato");
-                    this.props.changeState(this.props.book.asin)
+                    props.changeState(props.book.asin)
                   }}
-                  style={{ border: this.props.book.asin === this.props.asin ? "2px solid red" : "none" }}
+                  style={{ border: props.book.asin === props.asin ? "2px solid red" : "none" }}
                 >
-                  <Card.Img variant="top" src={this.props.book.img} />
+                  <Card.Img variant="top" src={props.book.img} />
                   <Card.Body>
-                    <Card.Title>{this.props.book.title}</Card.Title>
-                    <Card.Text>{this.props.book.category}</Card.Text>
-                    <Button variant="primary">{this.props.book.price}</Button>
+                    <Card.Title>{props.book.title}</Card.Title>
+                    <Card.Text>{props.book.category}</Card.Text>
+                    <Button variant="primary">{props.book.price}</Button>
                   </Card.Body>
                 </Card>
                 {/* {this.state.selected ? <CommentArea book={this.props.book} /> : ""} */}
@@ -44,6 +42,5 @@ class SingleBooks extends Component{
           </>
         );
     }
-}
 
 export default SingleBooks;

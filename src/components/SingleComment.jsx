@@ -1,17 +1,15 @@
-import {Component} from "react";
-import { ListGroup } from "react-bootstrap";
-class SingleComment extends Component{
 
-    render(){
+import { ListGroup } from "react-bootstrap";
+const SingleComment = (props) => {
         return (
           <>
             <ListGroup.Item className="bg-warning">
-              {this.props.comment.comment}
-              <span className="text-success"> {this.props.comment.rate}</span>
+              {props.comment.comment}
+              <span className="text-success"> {props.comment.rate}</span>
             </ListGroup.Item>
           </>
         );
     }
-}
+
 
 export default SingleComment

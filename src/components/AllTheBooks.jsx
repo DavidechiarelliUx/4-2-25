@@ -1,17 +1,15 @@
-import { Component } from "react";
 import {Card, Button, Container, Row,Col} from "react-bootstrap"
 
 
-class AllTheBooks extends Component{
+const AllTheBooks = (props) => {
 
-    render(){
-        console.log("THIS ALL THE BOOKS", this);
+       
         return (
           <>
-            <h2 className="text-center mt-5">{this.props.title}</h2>
+            <h2 className="text-center mt-5">{props.title}</h2>
             <Container>
               <Row>
-                {this.props.books.map((element, index) => {
+                {props.books.map((element, index) => {
                   return (
                     <Col key={index}>
                       <Card className="mb-2" style={{ width: "18rem", height: "450px" }}>
@@ -30,6 +28,6 @@ class AllTheBooks extends Component{
           </>
         );
     }
-}
+
 
 export default AllTheBooks

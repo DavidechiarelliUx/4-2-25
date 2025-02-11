@@ -1,26 +1,27 @@
-import { Component } from "react";
+
 import { Container, Row, Col } from "react-bootstrap";
 import SingleBooks from "./SignleBooks";
+// import { useState } from "react";
 
-class BookList extends Component {
+const BookList = (props)=> {
 
-    state = {
-        search:"",
-    }
+    // state = {
+    //     search:"",
+    // }
 
+    // const [search, setSearch] = useState("");
    
-  render() {
-    console.log("THIS ALL THE BOOKS", this);
-    console.log("search :", this.state.search);
+    console.log("THIS ALL THE BOOKS");
+    // console.log("search :", setSearch(search));
     return (
       <>
-        <h2 className="text-center mt-5">{this.props.title}</h2>
+        <h2 className="text-center mt-5">{props.title}</h2>
         <Container>
           <Row>
-            {this.props.books.map((element, index) => {
+            {props.books.map((element, index) => {
               return (
                 <Col key={index}>
-                  <SingleBooks book={element} asin={this.props.asin} changeState={this.props.changeState} />
+                  <SingleBooks book={element} asin={props.asin} changeState={props.changeState} />
                 </Col>
               );
             })}
@@ -29,6 +30,6 @@ class BookList extends Component {
       </>
     );
   }
-}
+
 
 export default BookList;

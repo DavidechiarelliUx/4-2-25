@@ -1,14 +1,13 @@
-import { Component } from "react";
 
-class AddComment extends Component {
 
-    render(){
+const AddComment = () =>  {
+
         return (
             <>
             ciao sono add;
             </>
         )
     }
-}
+
 
 export default AddComment;
