@@ -22,9 +22,10 @@ const SingleBooks = (props)=> {
             <Container className="d-flex justify-content-center">
               <Row>
                 <Card
-                  onClick={() =>{
+                  data-testid="card"
+                  onClick={() => {
                     console.log("libro selezionato");
-                    props.changeState(props.book.asin)
+                    props.changeState(props.book.asin);
                   }}
                   style={{ border: props.book.asin === props.asin ? "2px solid red" : "none" }}
                 >
